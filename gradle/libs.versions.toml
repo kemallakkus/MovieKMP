@@ -3,13 +3,20 @@ agp = "8.3.1"
 coroutinesVersion = "1.6.4"
 koinVersion = "3.3.2"
 kotlin = "1.9.20"
-compose = "1.5.4"
+compose = "1.6.5"
 compose-compiler = "1.5.4"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
 ktorVersion = "2.2.1"
+coil = "2.6.0"
+accompanist = "0.32.0"
+navigation = "2.7.7"
 
 [libraries]
+koin-androidx-compose = { module = "io.insert-koin:koin-android-compose", version.ref = "koinVersion" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinVersion" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinVersion" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }

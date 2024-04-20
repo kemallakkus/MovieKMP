@@ -45,4 +45,8 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.androidx.navigation.compose)
 }
