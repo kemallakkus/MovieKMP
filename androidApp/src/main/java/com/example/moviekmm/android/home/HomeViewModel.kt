@@ -1,8 +1,58 @@
 package com.example.moviekmm.android.home
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.moviekmm.domain.model.Movie
+import com.example.moviekmm.domain.usecases.GetMoviesUseCase
+import kotlinx.coroutines.launch
 
-class HomeViewModel {
+class HomeViewModel(
+    private val getMoviesUseCase: GetMoviesUseCase
+) : ViewModel() {
+
+    var uiState by mutableStateOf(HomeState())
+    private var currentPage = 1
+
+    init {
+        loadMovies(forceReload = false)
+    }
+
+    fun loadMovies(forceReload: Boolean) {
+
+        if (uiState.loading) return
+
+        if (forceReload) currentPage = 1
+
+        if (currentPage == 1) {
+            uiState = uiState.copy(refreshing = true)
+        }
+
+        viewModelScope.launch {
+            uiState = uiState.copy(loading = true)
+            try {
+                val resultMovies = getMoviesUseCase(page = currentPage)
+                val movies = if (currentPage == 1) resultMovies else uiState.movies + resultMovies
+
+                currentPage += 1
+
+                uiState = uiState.copy(
+                    loading = false,
+                    refreshing = false,
+                    loadFinished = resultMovies.isEmpty(),
+                    movies = movies
+                )
+            } catch (error: Throwable) {
+                uiState = uiState.copy(
+                    loading = false,
+                    refreshing = false,
+                    loadFinished = true,
+                    errorMessage = "Could not load: ${error.localizedMessage}"
+                )
+            }
+        }
+    }
 }
 
 data class HomeState(
