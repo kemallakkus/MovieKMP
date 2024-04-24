@@ -11,8 +11,10 @@ ktorVersion = "2.2.1"
 coil = "2.6.0"
 accompanist = "0.32.0"
 navigation = "2.7.7"
+swipe = "0.27.0"
 
 [libraries]
+accompanist_swiperefresh = { module =  "com.google.accompanist:accompanist-swiperefresh", version.ref = "swipe" }
 koin-androidx-compose = { module = "io.insert-koin:koin-android-compose", version.ref = "koinVersion" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
