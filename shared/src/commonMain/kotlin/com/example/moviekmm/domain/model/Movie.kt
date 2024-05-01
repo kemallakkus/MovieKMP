@@ -1,9 +1,12 @@
 package com.example.moviekmm.domain.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Movie(
     val id: Int,
     val title: String,
-    val description: String,
-    val image: String,
-    val releaseDate: String,
+    val overview: String,
+    val posterImage: String,
+    val releaseDate: String
 )

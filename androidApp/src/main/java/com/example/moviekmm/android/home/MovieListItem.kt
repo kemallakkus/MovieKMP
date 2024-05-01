@@ -49,7 +49,7 @@ fun MovieListItem(
                 contentAlignment = Alignment.Center
             ) {
                 AsyncImage(
-                    model = movie.image,
+                    model = movie.posterImage,
                     contentDescription = movie.title,
                     contentScale = ContentScale.Crop,
                     modifier = modifier

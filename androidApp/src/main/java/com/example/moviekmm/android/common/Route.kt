@@ -12,8 +12,10 @@ interface Route {
 object Home : Route {
     override val title: String
         get() = "Movies"
+
     override val route: String
         get() = "home"
+
     override val routeWithArgs: String
         get() = route
 }
@@ -21,8 +23,10 @@ object Home : Route {
 object Detail : Route {
     override val title: String
         get() = "Movie Details"
+
     override val route: String
         get() = "detail"
+
     override val routeWithArgs: String
         get() = "$route/{movieId}"
 

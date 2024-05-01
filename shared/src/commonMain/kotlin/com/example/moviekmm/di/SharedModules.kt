@@ -19,11 +19,11 @@ private val utilModule = module {
 }
 
 private val domainModule = module {
+    single <MovieRepository> {MovieRepositoryImpl(get())}
     factory { GetMovieUseCase() }
     factory { GetMoviesUseCase() }
-    single <MovieRepository> {MovieRepositoryImpl(get())}
 }
 
-private val sharedModules = listOf(dataModule, utilModule, domainModule)
+private val sharedModules = listOf(domainModule, dataModule, utilModule)
 
 fun getSharedModules() = sharedModules

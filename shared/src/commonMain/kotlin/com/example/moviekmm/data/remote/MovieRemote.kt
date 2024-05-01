@@ -1,15 +1,14 @@
 package com.example.moviekmm.data.remote
 
 import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
-internal data class MovieDetail(
+@kotlinx.serialization.Serializable
+internal data class MovieRemote(
     val id: Int,
     val title: String,
     val overview: String,
     @SerialName("poster_path")
-    val postImage: String,
+    val posterImage: String,
     @SerialName("release_date")
-    val releaseDate: String,
+    val releaseDate: String
 )
