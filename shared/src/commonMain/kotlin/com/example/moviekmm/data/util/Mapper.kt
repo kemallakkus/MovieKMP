@@ -1,16 +1,16 @@
 package com.example.moviekmm.data.util
 
-import com.example.moviekmm.data.remote.MovieDetail
+import com.example.moviekmm.data.remote.MovieRemote
 import com.example.moviekmm.domain.model.Movie
 
-internal fun MovieDetail.toMovie(): Movie {
+internal fun MovieRemote.toMovie(): Movie {
     return Movie(
-        id = id,
-        title = title,
-        description = overview,
-        image = getImage(postImage),
-        releaseDate = releaseDate
+        id = this.id,
+        title = this.title,
+        overview = this.overview,
+        posterImage = getImageUrl(this.posterImage),
+        releaseDate = this.releaseDate
     )
 }
 
-private fun getImage(postImage: String) = "https://www.themoviedb.org/t/p/w500/${postImage}"
+private fun getImageUrl(posterImage: String) = "https://image.tmdb.org/t/p/w500/$posterImage"

@@ -34,23 +34,21 @@ fun HomeScreen(
     loadNextMovies: (Boolean) -> Unit,
     navigateToDetail: (Movie) -> Unit,
 ) {
-
     val pullRefreshState = rememberPullRefreshState(
         refreshing = uiState.refreshing,
-        onRefresh = { loadNextMovies(true) }
-    )
+        onRefresh = { loadNextMovies(true) })
+
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(color = MaterialTheme.colorScheme.background)
-            .pullRefresh(pullRefreshState)
+            .pullRefresh(state = pullRefreshState)
     ) {
-
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             contentPadding = PaddingValues(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             itemsIndexed(
                 uiState.movies,
@@ -72,7 +70,9 @@ fun HomeScreen(
                         horizontalArrangement = Arrangement.Center,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        CircularProgressIndicator(color = Color.White)
+                        CircularProgressIndicator(
+                            color = Color.White
+                        )
                     }
                 }
             }

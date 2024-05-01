@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.IconButton
 import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -38,21 +39,22 @@ fun MovieToolbar(
             verticalAlignment = Alignment.CenterVertically
         ) {
             AnimatedVisibility(visible = navigateBack) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.onBackground
-                )
+                IconButton(onClick = onNavigateBack) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Back",
+                        tint = MaterialTheme.colorScheme.onBackground
+                    )
+                }
+                Spacer(modifier = modifier.width(24.dp))
             }
 
-            Spacer(modifier = modifier.width(24.dp))
+            Text(
+                text = currentScreen.title,
+                style = MaterialTheme.typography.titleMedium,
+                modifier = modifier.padding(12.dp),
+                color = MaterialTheme.colorScheme.onSurface
+            )
         }
-
-        Text(
-            text = currentScreen.title,
-            style = MaterialTheme.typography.titleMedium,
-            modifier = modifier.padding(12.dp),
-            color = MaterialTheme.colorScheme.onSurface
-        )
     }
 }

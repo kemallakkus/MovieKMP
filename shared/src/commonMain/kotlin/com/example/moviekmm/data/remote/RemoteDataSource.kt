@@ -8,11 +8,11 @@ internal class RemoteDataSource(
     private val dispatcher: Dispatcher
 ) {
 
-    suspend fun getMovies(page: Int) = withContext(dispatcher.io) {
-        apiService.getMovies(page)
+    suspend fun getMovies(page: Int) = withContext(dispatcher.io){
+        apiService.getMovies(page = page)
     }
 
-    suspend fun getMovie(movieId: Int) = withContext(dispatcher.io) {
-        apiService.getMovie(movieId)
+    suspend fun getMovie(movieId: Int) = withContext(dispatcher.io){
+        apiService.getMovie(movieId = movieId)
     }
 }
