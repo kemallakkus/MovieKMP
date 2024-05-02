@@ -56,8 +56,9 @@ kotlin {
         val iosSimulatorArm64Main by getting
         //iOSMain sourceSet
         val iosMain by creating {
-            dependencies{
+            dependencies {
                 implementation(libs.ktor.client.darwin)
+                implementation(libs.koin.core) // Eğer Koin iOS için destekliyorsa bu bağımlılığı buraya ekleyin.
             }
 
             dependsOn(commonMain)
