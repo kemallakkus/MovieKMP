@@ -20,7 +20,8 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "Shared"
+            baseName = "shared"
+            isStatic = true
         }
     }
 
@@ -80,6 +81,10 @@ kotlin {
 android {
     namespace = "com.example.moviekmm"
     compileSdk = 34
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
     defaultConfig {
         minSdk = 24
     }
