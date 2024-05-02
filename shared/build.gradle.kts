@@ -9,7 +9,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "17"
             }
         }
     }
@@ -56,9 +56,8 @@ kotlin {
         val iosSimulatorArm64Main by getting
         //iOSMain sourceSet
         val iosMain by creating {
-            dependencies {
+            dependencies{
                 implementation(libs.ktor.client.darwin)
-                implementation(libs.koin.core) // Eğer Koin iOS için destekliyorsa bu bağımlılığı buraya ekleyin.
             }
 
             dependsOn(commonMain)
