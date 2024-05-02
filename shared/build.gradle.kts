@@ -59,6 +59,7 @@ kotlin {
         val iosMain by creating {
             dependencies{
                 implementation(libs.ktor.client.darwin)
+                implementation(projects.shared)
             }
 
             dependsOn(commonMain)
